@@ -19,11 +19,11 @@ export const dispatch = (name, payload) => {
   }
 }
 
-export const call = (name, payload = {}) => {
+export const call = async(name, payload = {}) => {
   dispatch('startLoading', ({ loadingId: name, payload }))
   try {
     if (typeof functions?.[name] === 'function')
-      functions[name]({ payload, dispatch })
+      await functions[name]({ payload, dispatch })
     else
       throw new Error(`Function "${name}" not existing`)
   } catch (error) {
