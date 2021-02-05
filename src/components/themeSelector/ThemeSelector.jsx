@@ -107,11 +107,11 @@ const ThemeSelector = ({ children }) => {
   const [theme, setTheme] = useState()
 
   useEffect(() => {
-      let newTheme = { ...lightTheme }
-      if (settings.theme === 'dark')
-        newTheme = { ...darkTheme }
-  
-      setTheme(createMuiTheme(newTheme))
+    let newTheme = { ...lightTheme }
+    if (settings.theme === 'dark')
+      newTheme = { ...darkTheme }
+
+    setTheme(createMuiTheme(newTheme))
   }, [settings])
 
   if (theme == null)

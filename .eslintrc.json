@@ -1,0 +1,36 @@
+{
+  "extends": [
+    "standard",
+    "./react.js"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-unused-vars": [
+      "warn"
+    ],
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "curly": [
+      "error",
+      "multi",
+      "consistent"
+    ],
+    "no-useless-constructor": "off",
+    "no-var": "error",
+    "prefer-const": "off"
+  }
+}

@@ -1,39 +1,22 @@
-import languages from 'locales'
+import locales from 'locales'
 
 class Translator {
   constructor() {
-    this.language = this.getLanguage({ languages, locale: navigator.locale })
+    this.language = locales[0]
     this.unmatchedLabels = new Set()
     this.printUnmatchedLabels = false // set to true to debug missing label
   }
 
-  getLanguage = ({ languages = [], locale = 'en-EN' }) => {
-    for (let language of languages)
-      if (language.locale === navigator.language)
-        return language
-
-    for (let language of languages)
-      if (language.default)
-        return language
-
-    for (let language of languages)
-      return language
-
-    return {}
-  }
-
-  setLanguage = locale => {
-    for (let language of languages)
-      if (language.locale === locale)
-        this.language = language
+  setLanguage = (language) => {
+    this.language = language
   }
 
   fromLabel = (label) => {
-    if (this.language[label])
+    if (this.language[label] != null)
       return this.language[label]
     if (this.printUnmatchedLabels) {
       this.unmatchedLabels.add(label)
-      console.debug('unmatchedLabels', this.unmatchedLabels)
+      console.log('unmatchedLabels', this.unmatchedLabels)
     }
     return label
   }

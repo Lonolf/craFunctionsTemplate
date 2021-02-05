@@ -2,8 +2,8 @@ import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 
-import { useSelector } from 'react-redux'
 import Home from 'views/home/Home'
+import { Switch, Route } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   scrollbars: {
@@ -40,14 +40,15 @@ const useStyles = makeStyles((theme) => ({
 
 const ContentManager = () => {
   const classes = useStyles()
-  const pages = useSelector(state => state.navigation.pages)
-  const page = pages.length > 0 ? pages[pages.length - 1] : null
 
   return (
     <div className={classes.mainContainer}>
       <div className={`${classes.secondContainer} ${classes.scrollbars}`}>
-        {page === 'home' ? <Home />
-          : `Page "${page}" not recognized`}
+        <Switch>
+          <Route path='/home'>
+            <Home />
+          </Route>
+        </Switch>
       </div>
     </div>
   )
