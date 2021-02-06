@@ -11,5 +11,6 @@ export default createSlice({
       if (state[payload] != null)
         delete state[payload]
     },
+    debug: () => {},
   },
 })

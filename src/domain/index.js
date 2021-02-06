@@ -70,7 +70,6 @@ export const call = async(name, payload = {}) => {
 
 const onStart = async() => {
   call('parseUrl')
-  call('addSizeListener')
 }
 
 onStart()

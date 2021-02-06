@@ -45,7 +45,7 @@ const ContentManager = () => {
     <div className={classes.mainContainer}>
       <div className={`${classes.secondContainer} ${classes.scrollbars}`}>
         <Switch>
-          <Route path='/home'>
+          <Route path='/'>
             <Home />
           </Route>
         </Switch>

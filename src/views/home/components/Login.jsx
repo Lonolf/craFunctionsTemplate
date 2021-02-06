@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Button } from '@material-ui/core'
 
-import { call } from 'logic'
+import { call } from 'domain/index.js'
 
 import translator from 'utility/translator'
 

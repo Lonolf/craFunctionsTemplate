@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import translator from 'utility/translator'
 
-import { dispatch } from 'logic'
+import { call } from 'domain/index.js'
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -40,7 +40,7 @@ const ComponentPassedDownError = ({ props: { passedDownError, passedDownError: {
   error.name = name
   error.stack = componentStack
   error.code = 'runtimeError'
-  dispatch('createError', { error })
+  call('createError', error)
 
   return (
     <div className={classes.container}>

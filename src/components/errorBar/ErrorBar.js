@@ -9,7 +9,7 @@ import Button from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import ErrorIcon from '@material-ui/icons/Error'
 import { useSelector } from 'react-redux'
-import { dispatch } from 'logic'
+import { dispatch } from 'domain/index.js'
 
 const useStyle = makeStyles(theme => ({
   toolbar: { minHeight: 0 },
@@ -19,7 +19,7 @@ const useStyle = makeStyles(theme => ({
 
 const ErrorBar = () => {
   const classes = useStyle()
-  const { errorId, message} = useSelector(state => Object.values(state.errors)[0] ?? {})
+  const { errorId, message } = useSelector(state => Object.values(state.errors)[0] ?? {})
   const onClose = () => dispatch('deleteError', errorId)
 
   React.useEffect(() => {
